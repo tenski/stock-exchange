@@ -17,12 +17,17 @@
 		8093B3A126D3E04A00B5F77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39F26D3E04A00B5F77A /* LaunchScreen.storyboard */; };
 		8093B3AC26D3E04A00B5F77A /* stock_exchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B3AB26D3E04A00B5F77A /* stock_exchangeTests.swift */; };
 		8093B3B726D3E04A00B5F77A /* stock_exchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B3B626D3E04A00B5F77A /* stock_exchangeUITests.swift */; };
+		809EB5BA26F12D4C0012EA0C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5B926F12D4C0012EA0C /* View.swift */; };
+		809EB5BC26F132650012EA0C /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5BB26F132650012EA0C /* Interactor.swift */; };
+		809EB5BE26F133320012EA0C /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5BD26F133320012EA0C /* Presenter.swift */; };
+		809EB5C026F1349B0012EA0C /* DataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5BF26F1349B0012EA0C /* DataFlow.swift */; };
+		809EB5C226F13E9B0012EA0C /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5C126F13E9B0012EA0C /* TableManager.swift */; };
+		809EB5C426F144D40012EA0C /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EB5C326F144D40012EA0C /* Factory.swift */; };
 		80A0098B26D52C5E008DB344 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0098A26D52C5E008DB344 /* Response.swift */; };
 		80A00A0426D672EE008DB344 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0326D672ED008DB344 /* NetworkService.swift */; };
 		80A00A0626D672F9008DB344 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0526D672F9008DB344 /* NetworkDataFetcher.swift */; };
 		80A00A0C26D6B5E5008DB344 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */; };
 		80A00A1026D6C06E008DB344 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0F26D6C06E008DB344 /* CustomLabel.swift */; };
-		80A00A1A26DFEDD8008DB344 /* CurrancyPairID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A1926DFEDD8008DB344 /* CurrancyPairID.swift */; };
 		D4417490B829B29FBCA8A794 /* Pods_stock_exchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47A8F96E67A7CC063CBE2DC /* Pods_stock_exchangeTests.framework */; };
 		F5188F6DB9BD0AE0E149E61E /* Pods_stock_exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21BCE986B367A58BCEAE019A /* Pods_stock_exchange.framework */; };
 /* End PBXBuildFile section */
@@ -63,12 +68,17 @@
 		8093B3B226D3E04A00B5F77A /* stock-exchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stock-exchangeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8093B3B626D3E04A00B5F77A /* stock_exchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stock_exchangeUITests.swift; sourceTree = "<group>"; };
 		8093B3B826D3E04A00B5F77A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		809EB5B926F12D4C0012EA0C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		809EB5BB26F132650012EA0C /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		809EB5BD26F133320012EA0C /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		809EB5BF26F1349B0012EA0C /* DataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFlow.swift; sourceTree = "<group>"; };
+		809EB5C126F13E9B0012EA0C /* TableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableManager.swift; sourceTree = "<group>"; };
+		809EB5C326F144D40012EA0C /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		80A0098A26D52C5E008DB344 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		80A00A0326D672ED008DB344 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		80A00A0526D672F9008DB344 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		80A00A0F26D6C06E008DB344 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
-		80A00A1926DFEDD8008DB344 /* CurrancyPairID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrancyPairID.swift; sourceTree = "<group>"; };
 		85B0CBCB5546FB55EED6FB05 /* Pods-stock-exchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchangeTests.release.xcconfig"; path = "Target Support Files/Pods-stock-exchangeTests/Pods-stock-exchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		87BDD6CC211140E9E0097403 /* Pods-stock-exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchange.release.xcconfig"; path = "Target Support Files/Pods-stock-exchange/Pods-stock-exchange.release.xcconfig"; sourceTree = "<group>"; };
 		D8265026F0CD69483B623257 /* Pods-stock-exchange-stock-exchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchange-stock-exchangeUITests.debug.xcconfig"; path = "Target Support Files/Pods-stock-exchange-stock-exchangeUITests/Pods-stock-exchange-stock-exchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,12 +150,13 @@
 		8093B39026D3E04900B5F77A /* stock-exchange */ = {
 			isa = PBXGroup;
 			children = (
+				809EB5C326F144D40012EA0C /* Factory.swift */,
+				8093B39526D3E04900B5F77A /* ViewController.swift */,
+				809EB5BB26F132650012EA0C /* Interactor.swift */,
+				809EB5BD26F133320012EA0C /* Presenter.swift */,
 				80A0098926D52C31008DB344 /* View */,
-				80A0098826D52C2C008DB344 /* ViewController */,
-				80A00A0026D67275008DB344 /* Interactor */,
-				80A00A0226D67297008DB344 /* Presenter */,
+				80A00A0026D67275008DB344 /*  Service */,
 				80A0098526D52C12008DB344 /* Models */,
-				80A00A0126D67290008DB344 /* Router */,
 				8093B39126D3E04900B5F77A /* AppDelegate.swift */,
 				8093B39326D3E04900B5F77A /* SceneDelegate.swift */,
 				8093B39726D3E04900B5F77A /* Main.storyboard */,
@@ -179,17 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				80A0098A26D52C5E008DB344 /* Response.swift */,
-				80A00A1926DFEDD8008DB344 /* CurrancyPairID.swift */,
+				809EB5BF26F1349B0012EA0C /* DataFlow.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		80A0098826D52C2C008DB344 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8093B39526D3E04900B5F77A /* ViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		80A0098926D52C31008DB344 /* View */ = {
@@ -197,31 +200,19 @@
 			children = (
 				80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */,
 				80A00A0F26D6C06E008DB344 /* CustomLabel.swift */,
+				809EB5B926F12D4C0012EA0C /* View.swift */,
+				809EB5C126F13E9B0012EA0C /* TableManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		80A00A0026D67275008DB344 /* Interactor */ = {
+		80A00A0026D67275008DB344 /*  Service */ = {
 			isa = PBXGroup;
 			children = (
 				80A00A0326D672ED008DB344 /* NetworkService.swift */,
 				80A00A0526D672F9008DB344 /* NetworkDataFetcher.swift */,
 			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		80A00A0126D67290008DB344 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		80A00A0226D67297008DB344 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
+			path = " Service";
 			sourceTree = "<group>";
 		};
 		EB9E4D59968D12F7C16FA651 /* Pods */ = {
@@ -475,14 +466,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809EB5C426F144D40012EA0C /* Factory.swift in Sources */,
 				8093B39626D3E04900B5F77A /* ViewController.swift in Sources */,
 				80A00A1026D6C06E008DB344 /* CustomLabel.swift in Sources */,
-				80A00A1A26DFEDD8008DB344 /* CurrancyPairID.swift in Sources */,
 				8093B39C26D3E04900B5F77A /* stock_exchange.xcdatamodeld in Sources */,
 				80A00A0426D672EE008DB344 /* NetworkService.swift in Sources */,
+				809EB5C226F13E9B0012EA0C /* TableManager.swift in Sources */,
 				8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */,
+				809EB5BC26F132650012EA0C /* Interactor.swift in Sources */,
+				809EB5BA26F12D4C0012EA0C /* View.swift in Sources */,
 				80A00A0C26D6B5E5008DB344 /* CustomTableViewCell.swift in Sources */,
 				80A0098B26D52C5E008DB344 /* Response.swift in Sources */,
+				809EB5BE26F133320012EA0C /* Presenter.swift in Sources */,
+				809EB5C026F1349B0012EA0C /* DataFlow.swift in Sources */,
 				80A00A0626D672F9008DB344 /* NetworkDataFetcher.swift in Sources */,
 				8093B39426D3E04900B5F77A /* SceneDelegate.swift in Sources */,
 			);

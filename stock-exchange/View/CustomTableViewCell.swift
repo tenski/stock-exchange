@@ -63,30 +63,22 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    //сделать setupViewsAndConstraints через стек!!
+    
+    /*override func layoutSubviews() {
         super.layoutSubviews()
         
         id_label.frame = CGRect(x: UIScreen.main.bounds.width/30, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
         last_label.frame = CGRect(x: UIScreen.main.bounds.width/4, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
         highestBid_label.frame = CGRect(x: UIScreen.main.bounds.width/2, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
         percentChange_label.frame = CGRect(x: UIScreen.main.bounds.width/4*3, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
-    }
+    }*/
     
-    /*
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        id_label.text = nil
-        last_label.text = nil
-        highestBid_label.text = nil
-        percentChange_label.text = nil
-    }
-    */
-    
-    func updateViews(quote: Quote, name: String) {
-        id_label.text = name
-        last_label.text = "\(quote.last)"
-        highestBid_label.text = "\(quote.highestBid)"
-        percentChange_label.text = "\(quote.percentChange)"
+    func configure(quote: Quote) {
+        id_label.text = quote.ticker
+        last_label.text = quote.last
+        highestBid_label.text = quote.highestBid
+        percentChange_label.text = quote.percentChange
     }
 
 }

@@ -7,11 +7,27 @@
 
 import Foundation
 
-struct Quote: Codable {
+struct RawQuote: Codable {
     let id: Int
     let last: String
     let highestBid: String
     let percentChange: String
 }
 
-typealias SearchResponse = [String: Quote]
+struct Quote {
+    let ticker: String
+    let id: Int
+    let last: String
+    let highestBid: String
+    let percentChange: String
+    
+    init(ticker: String, rawQuote: RawQuote) {
+        self.ticker = ticker
+        id = rawQuote.id
+        last = rawQuote.last
+        highestBid = rawQuote.highestBid
+        percentChange = rawQuote.percentChange
+    }
+}
+
+//typealias SearchResponse = [String: RawQuote]
