@@ -9,12 +9,19 @@ import UIKit
 
 class CustomLabel: UILabel {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        self.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.textAlignment = .left
+        self.font = UIFont(name: "AvenirNextCondensed-Bold", size: 14)
+    }
 }
