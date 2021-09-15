@@ -10,6 +10,21 @@ import SnapKit
 
 class View: UIView {
     
+    private lazy var logoBox: UIView = {
+        let logoBox = UIView()
+        logoBox.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)
+        return logoBox
+    }()
+    
+    private lazy var tenskiTitle: UILabel = {
+        let tenskiTitle = UILabel()
+        tenskiTitle.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        tenskiTitle.numberOfLines = 2
+        tenskiTitle.textAlignment = .center
+        tenskiTitle.text = "Stock Market\n by tenski"
+        tenskiTitle.font = UIFont(name: "AvenirNextCondensed-Bold", size: 20)
+        return tenskiTitle
+    }()
     
     private lazy var headerStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [nameTitle, lastTitle, highestTitle, percentTitle])
@@ -24,23 +39,26 @@ class View: UIView {
         return tableView
     }()
     
-    private lazy var logo_box = UIView()
-    private lazy var my_title = UILabel()
-    private lazy var header_box = UIView()
-    private lazy var header_label = UILabel()
-    
     private lazy var nameTitle: CustomLabel = {
-        /*nameTitle.text = "Currancy pair"
-        lastTitle.text = "last"
-        highestTitle.text = "highestBid"
-        percentTitle.text = "percentChange"*/
-        CustomLabel()
+        let nameTitle = CustomLabel()
+        nameTitle.text = "Currancy pair"
+        return nameTitle
     }()
-    
-    private lazy var lastTitle = CustomLabel()
-    private lazy var highestTitle = CustomLabel()
-    private lazy var percentTitle = CustomLabel()
-    private lazy var titlesBox = UIView()
+    private lazy var lastTitle: CustomLabel = {
+        let lastTitle = CustomLabel()
+        lastTitle.text = "last"
+        return lastTitle
+    }()
+    private lazy var highestTitle: CustomLabel = {
+        let highestTitle = CustomLabel()
+        highestTitle.text = "highestBid"
+        return highestTitle
+    }()
+    private lazy var percentTitle : CustomLabel = {
+        let percentTitle = CustomLabel()
+        percentTitle.text = "percentChange"
+        return percentTitle
+    }()
     
     init(tableManager: UITableViewDelegate & UITableViewDataSource) {
         super.init(frame: .zero)
@@ -54,10 +72,21 @@ class View: UIView {
     }
     
     private func setupViewsAndConstraints() {
-        add(subviews: headerStackView, tableView, logo_box, my_title, header_box, header_label, titlesBox)
+        add(subviews: logoBox, tenskiTitle, headerStackView, tableView)
+        
+        logoBox.snp.makeConstraints {
+            $0.top.left.right.equalToSuperview()
+            $0.height.equalTo(UIScreen.main.bounds.height/8)
+        }
+        
+        tenskiTitle.snp.makeConstraints {
+            $0.centerX.centerY.equalTo(logoBox)
+        }
         
         headerStackView.snp.makeConstraints {
-            $0.top.left.right.equalToSuperview()
+            $0.left.right.equalToSuperview()
+            $0.top.equalTo(logoBox)
+            //$0.height.equalTo(UIScreen.main.bounds.height/40)
         }
         
         tableView.snp.makeConstraints {

@@ -12,10 +12,6 @@ class NetworkDataFetcher {
     private let networkService = NetworkService()
     private let urlString = "https://poloniex.com/public?command=returnTicker"
     
-    /*init(urlString: String) {
-        self.urlString = urlString
-    }*/
-    
     func fetchQuotes(response: @escaping (Result<DataFlow.Response, Error>) -> ()) {
         networkService.request(urlString: urlString) { (result) in
             switch result {
