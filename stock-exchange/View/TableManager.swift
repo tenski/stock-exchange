@@ -21,7 +21,7 @@ class TableManager: NSObject, TableManaging {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AlphaTableViewCell.identifier, for: indexPath) as? AlphaTableViewCell else { return UITableViewCell()}
         
         if let quote = viewModel?[indexPath.row] {
             cell.configure(quote: quote)
@@ -29,4 +29,8 @@ class TableManager: NSObject, TableManaging {
         return cell
         
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 50
+//    }
 }

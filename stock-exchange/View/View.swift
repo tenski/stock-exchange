@@ -11,58 +11,53 @@ import SnapKit
 class View: UIView {
     
     private lazy var logoBox: UIView = {
-        let logoBox = UIView()
-        logoBox.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)
-        return logoBox
+        let box = UIView()
+        box.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.2745098039, blue: 0.2, alpha: 1)
+        return box
     }()
     
     private lazy var tenskiTitle: UILabel = {
-        let tenskiTitle = UILabel()
-        tenskiTitle.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        tenskiTitle.numberOfLines = 2
-        tenskiTitle.textAlignment = .center
-        tenskiTitle.text = "Stock Market\n by tenski"
-        tenskiTitle.font = UIFont(name: "AvenirNextCondensed-Bold", size: 20)
-        return tenskiTitle
+        let label = UILabel()
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.text = "Stock Market\n by tenski"
+        label.font = UIFont(name: "AvenirNextCondensed-Bold", size: 20)
+        return label
     }()
     
     private lazy var headerStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [nameTitle, lastTitle, highestTitle, percentTitle])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        //stackView.alignment = .leading
         return stackView
     }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.register(AlphaTableViewCell.self, forCellReuseIdentifier: AlphaTableViewCell.identifier)
         return tableView
     }()
     
     private lazy var nameTitle: CustomLabel = {
-        let nameTitle = CustomLabel()
-        nameTitle.text = "Currency pair"
-        //nameTitle.textAlignment = .left
-        return nameTitle
+        let label = CustomLabel()
+        label.text = "Currency pair"
+        return label
     }()
     private lazy var lastTitle: CustomLabel = {
-        let lastTitle = CustomLabel()
-        lastTitle.text = "last"
-        //lastTitle.textAlignment = .left
-        return lastTitle
+        let label = CustomLabel()
+        label.text = "last"
+        return label
     }()
     private lazy var highestTitle: CustomLabel = {
-        let highestTitle = CustomLabel()
-        highestTitle.text = "highestBid"
-        //highestTitle.textAlignment = .left
-        return highestTitle
+        let label = CustomLabel()
+        label.text = "highestBid"
+        return label
     }()
     private lazy var percentTitle : CustomLabel = {
-        let percentTitle = CustomLabel()
-        percentTitle.text = "percentChange"
-        //percentTitle.textAlignment = .left
-        return percentTitle
+        let label = CustomLabel()
+        label.text = "percentChange"
+        return label
     }()
     
     init(tableManager: UITableViewDelegate & UITableViewDataSource) {
@@ -93,13 +88,14 @@ class View: UIView {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
         }
         
-        headerStackView.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(16)
-            $0.top.equalTo(logoBox.snp.bottom).offset(16)
-        }
+//        headerStackView.snp.makeConstraints {
+//            $0.left.right.equalToSuperview().inset(16)
+//            $0.top.equalTo(logoBox.snp.bottom).offset(16)
+//        }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(headerStackView.snp.bottom).offset(16)
+//            $0.top.equalTo(headerStackView.snp.bottom).offset(16)
+            $0.top.equalTo(logoBox.snp.bottom)
             $0.left.right.bottom.equalToSuperview()
         }
         
