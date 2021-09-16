@@ -12,12 +12,12 @@ class NetworkDataFetcher {
     private let networkService = NetworkService()
     private let urlString = "https://poloniex.com/public?command=returnTicker"
     
-    func fetchQuotes(response: @escaping (Result<DataFlow.Response, Error>) -> ()) {
+    func fetchQuotes(response: @escaping (Result<[String: RawQuote], Error>) -> ()) {
         networkService.request(urlString: urlString) { (result) in
             switch result {
             case .success(let data):
                 do {
-                    let quotes = try JSONDecoder().decode(DataFlow.Response.self, from: data)
+                    let quotes = try JSONDecoder().decode([String: RawQuote].self, from: data)
                     response(.success(quotes))
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)

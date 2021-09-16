@@ -29,7 +29,8 @@ class View: UIView {
     private lazy var headerStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [nameTitle, lastTitle, highestTitle, percentTitle])
         stackView.axis = .horizontal
-        stackView.spacing = 16
+        stackView.distribution = .equalSpacing
+        //stackView.alignment = .leading
         return stackView
     }()
     
@@ -41,22 +42,26 @@ class View: UIView {
     
     private lazy var nameTitle: CustomLabel = {
         let nameTitle = CustomLabel()
-        nameTitle.text = "Currancy pair"
+        nameTitle.text = "Currency pair"
+        //nameTitle.textAlignment = .left
         return nameTitle
     }()
     private lazy var lastTitle: CustomLabel = {
         let lastTitle = CustomLabel()
         lastTitle.text = "last"
+        //lastTitle.textAlignment = .left
         return lastTitle
     }()
     private lazy var highestTitle: CustomLabel = {
         let highestTitle = CustomLabel()
         highestTitle.text = "highestBid"
+        //highestTitle.textAlignment = .left
         return highestTitle
     }()
     private lazy var percentTitle : CustomLabel = {
         let percentTitle = CustomLabel()
         percentTitle.text = "percentChange"
+        //percentTitle.textAlignment = .left
         return percentTitle
     }()
     
@@ -72,25 +77,29 @@ class View: UIView {
     }
     
     private func setupViewsAndConstraints() {
-        add(subviews: logoBox, tenskiTitle, headerStackView, tableView)
+        backgroundColor = .white
+        
+        add(subviews: logoBox, headerStackView, tableView)
+        
+        logoBox.add(subviews: tenskiTitle)
         
         logoBox.snp.makeConstraints {
-            $0.top.left.right.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.height/8)
+            $0.left.right.equalToSuperview()
+            $0.top.equalToSuperview()
         }
         
         tenskiTitle.snp.makeConstraints {
-            $0.centerX.centerY.equalTo(logoBox)
+            $0.left.right.bottom.equalToSuperview().inset(10)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
         }
         
         headerStackView.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.top.equalTo(logoBox)
-            //$0.height.equalTo(UIScreen.main.bounds.height/40)
+            $0.left.right.equalToSuperview().inset(16)
+            $0.top.equalTo(logoBox.snp.bottom).offset(16)
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(headerStackView.snp.bottom)
+            $0.top.equalTo(headerStackView.snp.bottom).offset(16)
             $0.left.right.bottom.equalToSuperview()
         }
         

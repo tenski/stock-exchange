@@ -13,18 +13,18 @@ protocol InteractorBusinessLogic {
 
 class Interactor: InteractorBusinessLogic {
     
-    private let dataFetcher: NetworkDataFetcher
     private let presenter: PresentationLogic
+    private let provider: Provider
     
-    init(dataFetcher: NetworkDataFetcher, presenter: PresentationLogic) {
-        self.dataFetcher = dataFetcher
+    init(presenter: PresentationLogic, provider: Provider) {
         self.presenter = presenter
+        self.provider = provider
     }
     
     func loadData() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
             
-            self?.dataFetcher.fetchQuotes() { [weak self] (fetch) in
+            self?.provider.loadData() { [weak self] (fetch) in
                 guard let self = self else { return }
                 
                 switch fetch {

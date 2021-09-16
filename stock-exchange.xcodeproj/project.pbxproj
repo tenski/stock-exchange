@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A5D4F00B7C3635B8BA5EBAF /* Pods_stock_exchange_stock_exchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D28C0221BBF7782F6A2F893 /* Pods_stock_exchange_stock_exchangeUITests.framework */; };
+		8067C36326F27437002A96B0 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8067C36226F27437002A96B0 /* Provider.swift */; };
 		8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39126D3E04900B5F77A /* AppDelegate.swift */; };
 		8093B39426D3E04900B5F77A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39326D3E04900B5F77A /* SceneDelegate.swift */; };
 		8093B39626D3E04900B5F77A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39526D3E04900B5F77A /* ViewController.swift */; };
-		8093B39926D3E04900B5F77A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39726D3E04900B5F77A /* Main.storyboard */; };
 		8093B39C26D3E04900B5F77A /* stock_exchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39A26D3E04900B5F77A /* stock_exchange.xcdatamodeld */; };
 		8093B39E26D3E04A00B5F77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39D26D3E04A00B5F77A /* Assets.xcassets */; };
 		8093B3A126D3E04A00B5F77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39F26D3E04A00B5F77A /* LaunchScreen.storyboard */; };
@@ -53,11 +53,11 @@
 		21BCE986B367A58BCEAE019A /* Pods_stock_exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stock_exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D28C0221BBF7782F6A2F893 /* Pods_stock_exchange_stock_exchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stock_exchange_stock_exchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D63AAFB04246F7A0A01EE9 /* Pods-stock-exchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchangeTests.debug.xcconfig"; path = "Target Support Files/Pods-stock-exchangeTests/Pods-stock-exchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8067C36226F27437002A96B0 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		8093B38E26D3E04900B5F77A /* stock-exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stock-exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8093B39126D3E04900B5F77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8093B39326D3E04900B5F77A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8093B39526D3E04900B5F77A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8093B39826D3E04900B5F77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8093B39B26D3E04900B5F77A /* stock_exchange.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = stock_exchange.xcdatamodel; sourceTree = "<group>"; };
 		8093B39D26D3E04A00B5F77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8093B3A026D3E04A00B5F77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 				80A0098526D52C12008DB344 /* Models */,
 				8093B39126D3E04900B5F77A /* AppDelegate.swift */,
 				8093B39326D3E04900B5F77A /* SceneDelegate.swift */,
-				8093B39726D3E04900B5F77A /* Main.storyboard */,
 				8093B39D26D3E04A00B5F77A /* Assets.xcassets */,
 				8093B39F26D3E04A00B5F77A /* LaunchScreen.storyboard */,
 				8093B3A226D3E04A00B5F77A /* Info.plist */,
@@ -211,6 +210,7 @@
 			children = (
 				80A00A0326D672ED008DB344 /* NetworkService.swift */,
 				80A00A0526D672F9008DB344 /* NetworkDataFetcher.swift */,
+				8067C36226F27437002A96B0 /* Provider.swift */,
 			);
 			path = " Service";
 			sourceTree = "<group>";
@@ -338,7 +338,6 @@
 			files = (
 				8093B3A126D3E04A00B5F77A /* LaunchScreen.storyboard in Resources */,
 				8093B39E26D3E04A00B5F77A /* Assets.xcassets in Resources */,
-				8093B39926D3E04900B5F77A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +469,7 @@
 				8093B39626D3E04900B5F77A /* ViewController.swift in Sources */,
 				80A00A1026D6C06E008DB344 /* CustomLabel.swift in Sources */,
 				8093B39C26D3E04900B5F77A /* stock_exchange.xcdatamodeld in Sources */,
+				8067C36326F27437002A96B0 /* Provider.swift in Sources */,
 				80A00A0426D672EE008DB344 /* NetworkService.swift in Sources */,
 				809EB5C226F13E9B0012EA0C /* TableManager.swift in Sources */,
 				8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */,
@@ -516,14 +516,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8093B39726D3E04900B5F77A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8093B39826D3E04900B5F77A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8093B39F26D3E04A00B5F77A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

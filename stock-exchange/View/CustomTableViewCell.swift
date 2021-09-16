@@ -15,7 +15,8 @@ class CustomTableViewCell: UITableViewCell {
     private lazy var labelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [idLabel, lastLabel, highestLabel, percentLabel])
         stackView.axis = .horizontal
-        stackView.spacing = 16
+        stackView.spacing = 5
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -53,7 +54,7 @@ class CustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.add(subviews: labelStackView)
+        setupViewsAndConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -68,6 +69,16 @@ class CustomTableViewCell: UITableViewCell {
 //        highestBid_label.frame = CGRect(x: UIScreen.main.bounds.width/2, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
 //        percentChange_label.frame = CGRect(x: UIScreen.main.bounds.width/4*3, y: 0, width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.height/30)
 //    }
+    
+    private func setupViewsAndConstraints() {
+        
+        contentView.add(subviews: labelStackView)
+        
+        labelStackView.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(16)
+            $0.top.bottom.equalToSuperview()
+        }
+    }
     
     func configure(quote: Quote) {
         idLabel.text = quote.ticker

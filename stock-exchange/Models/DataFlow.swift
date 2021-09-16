@@ -8,9 +8,7 @@
 import Foundation
 
 enum DataFlow {
-    typealias Response = [String: RawQuote]
+    typealias Response = [Quote]
     
-    struct ViewModel {
-        let quotes: [Quote]
-    }
+    typealias ViewModel = [Quote]
 }

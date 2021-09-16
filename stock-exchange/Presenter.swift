@@ -17,11 +17,7 @@ class Presenter: PresentationLogic {
     weak var viewController: DisplaysLogic?
     
     func presentData(response: DataFlow.Response) {
-        let quotes = response.map {
-            Quote(ticker: $0.key, rawQuote: $0.value)
-        }
-        
-        viewController?.displayData(viewModel: .init(quotes: quotes))
+        viewController?.displayData(viewModel: response)
     }
     
     func presentError(_ error: Error) {
