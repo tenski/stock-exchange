@@ -63,17 +63,18 @@ class AlphaTableViewCell: UITableViewCell {
         contentView.add(subviews: tickerImageView, tickerLabel, lastAndPercentStackView)
         
         tickerImageView.snp.makeConstraints {
-            $0.top.bottom.left.equalToSuperview().inset(10)
+            $0.top.left.equalToSuperview().inset(10)
+            $0.width.height.equalTo(40)
         }
         
         tickerLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
-            $0.left.equalTo(tickerImageView.snp.right).inset(10)
+            $0.left.equalTo(tickerImageView.snp.right).offset(10)
         }
         
         lastAndPercentStackView.snp.makeConstraints {
             $0.top.bottom.right.equalToSuperview().inset(10).priority(.high)
-            $0.height.equalTo(50)
+   
         }
     }
     
