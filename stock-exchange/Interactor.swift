@@ -14,17 +14,15 @@ protocol InteractorBusinessLogic {
 class Interactor: InteractorBusinessLogic {
     
     private let presenter: PresentationLogic
-    private let provider: Provider
     
-    init(presenter: PresentationLogic, provider: Provider) {
+    init(presenter: PresentationLogic) {
         self.presenter = presenter
-        self.provider = provider
     }
     
     func loadData() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
             
-            self?.provider.loadData() { [weak self] (fetch) in
+            self?.presenter.loadData() { [weak self] (fetch) in
                 guard let self = self else { return }
                 
                 switch fetch {

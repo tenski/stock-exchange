@@ -9,11 +9,9 @@ import Foundation
 
 class Factory {
     static func build() -> ViewController {
-        let dataFetcher = NetworkDataFetcher()
-        let presenter = Presenter()
-        
-        let provider = Provider(dataFetcher: dataFetcher)
-        let interactor = Interactor(presenter: presenter, provider: provider)
+        let provider = Provider()
+        let presenter = Presenter(provider: provider)
+        let interactor = Interactor(presenter: presenter)
         
         let viewController = ViewController(interactor: interactor, tableManager: TableManager())
         presenter.viewController = viewController

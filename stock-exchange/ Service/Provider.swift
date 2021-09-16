@@ -2,35 +2,30 @@
 //  Provider.swift
 //  stock-exchange
 //
-//  Created by Алексей Тен on 15.09.2021.
+//  Created by Алексей Тен on 25.08.2021.
 //
 
 import Foundation
 
 class Provider {
     
-    let dataFetcher: NetworkDataFetcher
+    private let networkService = NetworkService()
+    private let urlString = "https://poloniex.com/public?command=returnTicker"
     
-    init(dataFetcher: NetworkDataFetcher) {
-        self.dataFetcher = dataFetcher
-    }
-    
-    func loadData(completion: @escaping (Result<DataFlow.Response,Error>) -> ()) {
-        dataFetcher.fetchQuotes { response in
-            switch response{
-            
+    func fetchQuotes(response: @escaping (Result<[String: RawQuote], Error>) -> ()) {
+        networkService.request(urlString: urlString) { (result) in
+            switch result {
             case .success(let data):
-                let quotes = data.map {
-                    return Quote(ticker: $0.key, rawQuote: $0.value)
-                }.sorted {
-                    $0.ticker < $1.ticker
+                do {
+                    let quotes = try JSONDecoder().decode([String: RawQuote].self, from: data)
+                    response(.success(quotes))
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                    response(.failure(jsonError))
                 }
-                DispatchQueue.main.async {
-                    completion(.success(quotes))
-                }
-                
             case .failure(let error):
-                completion(.failure(error))
+                print("Error received requesting data: \(error.localizedDescription)")
+                response(.failure(error))
             }
         }
     }
