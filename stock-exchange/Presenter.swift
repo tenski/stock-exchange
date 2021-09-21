@@ -35,7 +35,6 @@ class Presenter: PresentationLogic {
                 DispatchQueue.main.async {
                     completion(.success(quotes))
                 }
-                
             case .failure(let error):
                 completion(.failure(error))
             }

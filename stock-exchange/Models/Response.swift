@@ -29,5 +29,3 @@ struct Quote {
         percentChange = rawQuote.percentChange
     }
 }
-
-//typealias SearchResponse = [String: RawQuote]

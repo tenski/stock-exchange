@@ -18,7 +18,6 @@ class NetworkService {
             }
             guard let data = data else { return }
             completion(.success(data))
-            
         }.resume()
     }
 }

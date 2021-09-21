@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  stock-exchange
 //
 //  Created by Алексей Тен on 23.08.2021.
@@ -12,7 +12,7 @@ protocol DisplaysLogic: AnyObject {
     func displayData(viewModel: DataFlow.ViewModel)
 }
 
-class ViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate {
     
     private let tableManager: TableManaging
     private let interactor: InteractorBusinessLogic
@@ -31,7 +31,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         interactor.loadData()
     }
@@ -42,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 }
 
 
-extension ViewController: DisplaysLogic {
+extension MainViewController: DisplaysLogic {
     func displayData(viewModel: DataFlow.ViewModel) {
         self.tableManager.viewModel = viewModel
         self.contentView.tableView.reloadData()

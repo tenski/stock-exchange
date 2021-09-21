@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1A5D4F00B7C3635B8BA5EBAF /* Pods_stock_exchange_stock_exchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D28C0221BBF7782F6A2F893 /* Pods_stock_exchange_stock_exchangeUITests.framework */; };
+		80303DDC26FA0F950017F13B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80303DDB26FA0F950017F13B /* CollectionViewCell.swift */; };
+		80303DE026FA13CB0017F13B /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80303DDF26FA13CB0017F13B /* CollectionManager.swift */; };
 		8067C36926F3576B002A96B0 /* AlphaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8067C36826F3576B002A96B0 /* AlphaTableViewCell.swift */; };
 		8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39126D3E04900B5F77A /* AppDelegate.swift */; };
 		8093B39426D3E04900B5F77A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39326D3E04900B5F77A /* SceneDelegate.swift */; };
-		8093B39626D3E04900B5F77A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39526D3E04900B5F77A /* ViewController.swift */; };
+		8093B39626D3E04900B5F77A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39526D3E04900B5F77A /* MainViewController.swift */; };
 		8093B39C26D3E04900B5F77A /* stock_exchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39A26D3E04900B5F77A /* stock_exchange.xcdatamodeld */; };
 		8093B39E26D3E04A00B5F77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39D26D3E04A00B5F77A /* Assets.xcassets */; };
 		8093B3A126D3E04A00B5F77A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8093B39F26D3E04A00B5F77A /* LaunchScreen.storyboard */; };
@@ -26,7 +28,6 @@
 		80A0098B26D52C5E008DB344 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A0098A26D52C5E008DB344 /* Response.swift */; };
 		80A00A0426D672EE008DB344 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0326D672ED008DB344 /* NetworkService.swift */; };
 		80A00A0626D672F9008DB344 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0526D672F9008DB344 /* Provider.swift */; };
-		80A00A0C26D6B5E5008DB344 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */; };
 		80A00A1026D6C06E008DB344 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A00A0F26D6C06E008DB344 /* CustomLabel.swift */; };
 		D4417490B829B29FBCA8A794 /* Pods_stock_exchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47A8F96E67A7CC063CBE2DC /* Pods_stock_exchangeTests.framework */; };
 		F5188F6DB9BD0AE0E149E61E /* Pods_stock_exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21BCE986B367A58BCEAE019A /* Pods_stock_exchange.framework */; };
@@ -53,11 +54,13 @@
 		21BCE986B367A58BCEAE019A /* Pods_stock_exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stock_exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D28C0221BBF7782F6A2F893 /* Pods_stock_exchange_stock_exchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stock_exchange_stock_exchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D63AAFB04246F7A0A01EE9 /* Pods-stock-exchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchangeTests.debug.xcconfig"; path = "Target Support Files/Pods-stock-exchangeTests/Pods-stock-exchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		80303DDB26FA0F950017F13B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		80303DDF26FA13CB0017F13B /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
 		8067C36826F3576B002A96B0 /* AlphaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaTableViewCell.swift; sourceTree = "<group>"; };
 		8093B38E26D3E04900B5F77A /* stock-exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stock-exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8093B39126D3E04900B5F77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8093B39326D3E04900B5F77A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8093B39526D3E04900B5F77A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8093B39526D3E04900B5F77A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8093B39B26D3E04900B5F77A /* stock_exchange.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = stock_exchange.xcdatamodel; sourceTree = "<group>"; };
 		8093B39D26D3E04A00B5F77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8093B3A026D3E04A00B5F77A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,7 +80,6 @@
 		80A0098A26D52C5E008DB344 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		80A00A0326D672ED008DB344 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		80A00A0526D672F9008DB344 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		80A00A0F26D6C06E008DB344 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		85B0CBCB5546FB55EED6FB05 /* Pods-stock-exchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchangeTests.release.xcconfig"; path = "Target Support Files/Pods-stock-exchangeTests/Pods-stock-exchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		87BDD6CC211140E9E0097403 /* Pods-stock-exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stock-exchange.release.xcconfig"; path = "Target Support Files/Pods-stock-exchange/Pods-stock-exchange.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		80303DDD26FA124D0017F13B /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				80A00A0F26D6C06E008DB344 /* CustomLabel.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		8093B38526D3E04900B5F77A = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +161,13 @@
 			isa = PBXGroup;
 			children = (
 				809EB5C326F144D40012EA0C /* Factory.swift */,
-				8093B39526D3E04900B5F77A /* ViewController.swift */,
+				8093B39526D3E04900B5F77A /* MainViewController.swift */,
 				809EB5BB26F132650012EA0C /* Interactor.swift */,
 				809EB5BD26F133320012EA0C /* Presenter.swift */,
 				80A0098926D52C31008DB344 /* View */,
-				80A00A0026D67275008DB344 /*  Service */,
+				80A00A0026D67275008DB344 /* Service */,
 				80A0098526D52C12008DB344 /* Models */,
+				80303DDD26FA124D0017F13B /* Workers */,
 				8093B39126D3E04900B5F77A /* AppDelegate.swift */,
 				8093B39326D3E04900B5F77A /* SceneDelegate.swift */,
 				8093B39D26D3E04A00B5F77A /* Assets.xcassets */,
@@ -198,21 +209,21 @@
 			isa = PBXGroup;
 			children = (
 				8067C36826F3576B002A96B0 /* AlphaTableViewCell.swift */,
-				80A00A0B26D6B5E5008DB344 /* CustomTableViewCell.swift */,
-				80A00A0F26D6C06E008DB344 /* CustomLabel.swift */,
+				80303DDB26FA0F950017F13B /* CollectionViewCell.swift */,
 				809EB5B926F12D4C0012EA0C /* View.swift */,
 				809EB5C126F13E9B0012EA0C /* TableManager.swift */,
+				80303DDF26FA13CB0017F13B /* CollectionManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		80A00A0026D67275008DB344 /*  Service */ = {
+		80A00A0026D67275008DB344 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				80A00A0326D672ED008DB344 /* NetworkService.swift */,
 				80A00A0526D672F9008DB344 /* Provider.swift */,
 			);
-			path = " Service";
+			path = Service;
 			sourceTree = "<group>";
 		};
 		EB9E4D59968D12F7C16FA651 /* Pods */ = {
@@ -466,16 +477,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				809EB5C426F144D40012EA0C /* Factory.swift in Sources */,
-				8093B39626D3E04900B5F77A /* ViewController.swift in Sources */,
+				80303DDC26FA0F950017F13B /* CollectionViewCell.swift in Sources */,
+				8093B39626D3E04900B5F77A /* MainViewController.swift in Sources */,
 				80A00A1026D6C06E008DB344 /* CustomLabel.swift in Sources */,
 				8093B39C26D3E04900B5F77A /* stock_exchange.xcdatamodeld in Sources */,
 				80A00A0426D672EE008DB344 /* NetworkService.swift in Sources */,
 				809EB5C226F13E9B0012EA0C /* TableManager.swift in Sources */,
 				8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */,
 				809EB5BC26F132650012EA0C /* Interactor.swift in Sources */,
+				80303DE026FA13CB0017F13B /* CollectionManager.swift in Sources */,
 				809EB5BA26F12D4C0012EA0C /* View.swift in Sources */,
 				8067C36926F3576B002A96B0 /* AlphaTableViewCell.swift in Sources */,
-				80A00A0C26D6B5E5008DB344 /* CustomTableViewCell.swift in Sources */,
 				80A0098B26D52C5E008DB344 /* Response.swift in Sources */,
 				809EB5BE26F133320012EA0C /* Presenter.swift in Sources */,
 				809EB5C026F1349B0012EA0C /* DataFlow.swift in Sources */,

@@ -21,14 +21,12 @@ class Interactor: InteractorBusinessLogic {
     
     func loadData() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            
             self?.presenter.loadData() { [weak self] (fetch) in
                 guard let self = self else { return }
                 
                 switch fetch {
                 case .success(let data):
                     self.presenter.presentData(response: data)
-                    
                 case .failure(let error):
                     self.presenter.presentError(error)
                 }

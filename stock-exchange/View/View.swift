@@ -15,7 +15,6 @@ class View: UIView {
         box.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.2745098039, blue: 0.2, alpha: 1)
         return box
     }()
-    
     private lazy var tenskiTitle: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -26,38 +25,16 @@ class View: UIView {
         return label
     }()
     
-    private lazy var headerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameTitle, lastTitle, highestTitle, percentTitle])
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        return stackView
-    }()
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(AlphaTableViewCell.self, forCellReuseIdentifier: AlphaTableViewCell.identifier)
         return tableView
     }()
     
-    private lazy var nameTitle: CustomLabel = {
-        let label = CustomLabel()
-        label.text = "Currency pair"
-        return label
-    }()
-    private lazy var lastTitle: CustomLabel = {
-        let label = CustomLabel()
-        label.text = "last"
-        return label
-    }()
-    private lazy var highestTitle: CustomLabel = {
-        let label = CustomLabel()
-        label.text = "highestBid"
-        return label
-    }()
-    private lazy var percentTitle : CustomLabel = {
-        let label = CustomLabel()
-        label.text = "percentChange"
-        return label
+    lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView()
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        return collectionView
     }()
     
     init(tableManager: UITableViewDelegate & UITableViewDataSource) {
@@ -74,10 +51,9 @@ class View: UIView {
     private func setupViewsAndConstraints() {
         backgroundColor = .white
         
-        add(subviews: logoBox, headerStackView, tableView)
+        add(subviews: logoBox, tableView)
         
         logoBox.add(subviews: tenskiTitle)
-        
         logoBox.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.top.equalToSuperview()
@@ -88,13 +64,7 @@ class View: UIView {
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
         }
         
-//        headerStackView.snp.makeConstraints {
-//            $0.left.right.equalToSuperview().inset(16)
-//            $0.top.equalTo(logoBox.snp.bottom).offset(16)
-//        }
-        
         tableView.snp.makeConstraints {
-//            $0.top.equalTo(headerStackView.snp.bottom).offset(16)
             $0.top.equalTo(logoBox.snp.bottom)
             $0.left.right.bottom.equalToSuperview()
         }

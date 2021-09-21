@@ -9,6 +9,5 @@ import Foundation
 
 enum DataFlow {
     typealias Response = [Quote]
-    
     typealias ViewModel = [Quote]
 }

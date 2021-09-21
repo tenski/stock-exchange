@@ -1,19 +1,19 @@
 //
-//  AlphaTableViewCell.swift
+//  CollectionViewCell.swift
 //  stock-exchange
 //
-//  Created by Алексей Тен on 16.09.2021.
+//  Created by Алексей Тен on 21.09.2021.
 //
 
 import UIKit
 
-class AlphaTableViewCell: UITableViewCell {
+class CollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "AlphaTableViewCell"
-    
+    static let identifier = "CollectionViewCell"
+
     private lazy var lastAndPercentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [lastLabel, percentLabel])
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
         return stackView
     }()
@@ -44,20 +44,21 @@ class AlphaTableViewCell: UITableViewCell {
         label.font = UIFont(name: "AvenirNextCondensed-Regular", size: 12)
         return label
     }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         setupViewsAndConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupViewsAndConstraints() {
-        
+
         contentView.add(subviews: tickerImageView, tickerLabel, lastAndPercentStackView)
-        
+
         tickerImageView.snp.makeConstraints {
             $0.top.left.equalToSuperview().inset(10)
             $0.width.height.equalTo(40)
@@ -67,14 +68,16 @@ class AlphaTableViewCell: UITableViewCell {
             $0.left.equalTo(tickerImageView.snp.right).offset(10)
         }
         lastAndPercentStackView.snp.makeConstraints {
-            $0.top.bottom.right.equalToSuperview().inset(10).priority(.high)
+            $0.bottom.left.equalToSuperview().inset(10)
+            $0.top.equalTo(tickerImageView.snp.bottom).offset(10)
         }
     }
-    
+
     func configure(quote: Quote) {
+        self.
         tickerLabel.text = quote.ticker
         lastLabel.text = quote.last
-        
+
         let doublePercent = (Double(quote.percentChange) ?? 00)*100
         percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
     }
