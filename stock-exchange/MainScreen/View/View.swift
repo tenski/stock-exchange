@@ -28,13 +28,8 @@ class View: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(AlphaTableViewCell.self, forCellReuseIdentifier: AlphaTableViewCell.identifier)
+        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: CollectionTableViewCell.identifier)
         return tableView
-    }()
-    
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        return collectionView
     }()
     
     init(tableManager: UITableViewDelegate & UITableViewDataSource) {

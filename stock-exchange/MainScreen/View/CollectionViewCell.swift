@@ -1,21 +1,23 @@
 //
-//  AlphaTableViewCell.swift
+//  CollectionViewCell.swift
 //  stock-exchange
 //
-//  Created by Алексей Тен on 16.09.2021.
+//  Created by Алексей Тен on 21.09.2021.
 //
 
 import UIKit
 
-class AlphaTableViewCell: UITableViewCell {
+class CollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "AlphaTableViewCell"
+    static let identifier = "CollectionViewCell"
     
-    private lazy var lastAndPercentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [lastLabel, percentLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        return stackView
+    private var borderView: UIView = {
+        var view = UIView()
+        view.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 2
+        view.layer.borderColor = #colorLiteral(red: 0.8588235294, green: 0.2745098174, blue: 0.2, alpha: 1)
+        return view
     }()
     private var tickerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -44,37 +46,46 @@ class AlphaTableViewCell: UITableViewCell {
         label.font = UIFont(name: "AvenirNextCondensed-Regular", size: 12)
         return label
     }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         setupViewsAndConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupViewsAndConstraints() {
-        
-        contentView.add(subviews: tickerImageView, tickerLabel, lastAndPercentStackView)
-        
+        contentView.add(subviews: borderView, tickerImageView, tickerLabel, lastLabel, percentLabel)
+
+        borderView.snp.makeConstraints {
+            $0.bottom.right.equalToSuperview()
+            $0.top.left.equalToSuperview().offset(5)
+        }
         tickerImageView.snp.makeConstraints {
-            $0.top.left.equalToSuperview().inset(10)
+            $0.top.left.equalToSuperview().inset(15)
             $0.width.height.equalTo(40)
         }
         tickerLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(10)
-            $0.left.equalTo(tickerImageView.snp.right).offset(10)
+            $0.top.equalToSuperview().inset(15)
+            $0.right.equalToSuperview().inset(10)
         }
-        lastAndPercentStackView.snp.makeConstraints {
-            $0.top.bottom.right.equalToSuperview().inset(10).priority(.high)
+        lastLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(15)
+            $0.bottom.equalToSuperview().inset(10)
+            $0.top.equalTo(tickerImageView.snp.bottom).offset(10)
+        }
+        percentLabel.snp.makeConstraints {
+            $0.bottom.right.equalToSuperview().inset(10)
+            $0.top.equalTo(tickerImageView.snp.bottom).offset(10)
         }
     }
-    
+
     func configure(quote: Quote) {
         tickerLabel.text = quote.ticker
         lastLabel.text = quote.last
-        
+
         let doublePercent = (Double(quote.percentChange) ?? 00)*100
         percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
     }

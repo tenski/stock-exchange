@@ -8,21 +8,24 @@
 import Foundation
 import UIKit
 
-protocol CollectionManaging: UICollectionViewDataSource, UICollectionViewDelegate {
-    var viewModel: DataFlow.ViewModel? { get set }
+protocol CollectionManaging: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var quotes: [Quote]? { get set }
 }
 
 class CollectionManager: NSObject, CollectionManaging {
-    var viewModel: DataFlow.ViewModel?
+    
+    var quotes: [Quote]?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.count ?? 0
+        return quotes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
         
-        if let quote = viewModel?[indexPath.row] {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
+                                                            for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
+        
+        if let quote = quotes?[indexPath.row] {
             cell.configure(quote: quote)
         }
         return cell
