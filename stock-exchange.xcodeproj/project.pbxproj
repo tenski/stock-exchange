@@ -12,6 +12,11 @@
 		80303DE026FA13CB0017F13B /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80303DDF26FA13CB0017F13B /* CollectionManager.swift */; };
 		8067C36926F3576B002A96B0 /* AlphaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8067C36826F3576B002A96B0 /* AlphaTableViewCell.swift */; };
 		8080499A26FCB85D001BDA88 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080499926FCB85D001BDA88 /* CollectionTableViewCell.swift */; };
+		8080499E26FDB7E1001BDA88 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080499D26FDB7E1001BDA88 /* DetailsViewController.swift */; };
+		808049A026FDB82E001BDA88 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080499F26FDB82E001BDA88 /* DetailsInteractor.swift */; };
+		808049A226FDB83B001BDA88 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808049A126FDB83B001BDA88 /* DetailsPresenter.swift */; };
+		808049A426FE0873001BDA88 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808049A326FE0873001BDA88 /* MainScreenRouter.swift */; };
+		808049A626FE19A3001BDA88 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808049A526FE19A3001BDA88 /* DataStore.swift */; };
 		8093B39226D3E04900B5F77A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39126D3E04900B5F77A /* AppDelegate.swift */; };
 		8093B39426D3E04900B5F77A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39326D3E04900B5F77A /* SceneDelegate.swift */; };
 		8093B39626D3E04900B5F77A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8093B39526D3E04900B5F77A /* MainViewController.swift */; };
@@ -59,6 +64,11 @@
 		80303DDF26FA13CB0017F13B /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
 		8067C36826F3576B002A96B0 /* AlphaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaTableViewCell.swift; sourceTree = "<group>"; };
 		8080499926FCB85D001BDA88 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		8080499D26FDB7E1001BDA88 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8080499F26FDB82E001BDA88 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		808049A126FDB83B001BDA88 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		808049A326FE0873001BDA88 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		808049A526FE19A3001BDA88 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		8093B38E26D3E04900B5F77A /* stock-exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stock-exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8093B39126D3E04900B5F77A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8093B39326D3E04900B5F77A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,19 +154,22 @@
 				8093B39526D3E04900B5F77A /* MainViewController.swift */,
 				809EB5BB26F132650012EA0C /* Interactor.swift */,
 				809EB5BD26F133320012EA0C /* Presenter.swift */,
+				808049A326FE0873001BDA88 /* MainScreenRouter.swift */,
 				80A0098926D52C31008DB344 /* View */,
 				80A00A0026D67275008DB344 /* Service */,
 				80A0098526D52C12008DB344 /* Models */,
-				80303DDD26FA124D0017F13B /* Workers */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		8080499C26FDB2CB001BDA88 /* QuoteScreen */ = {
+		8080499C26FDB2CB001BDA88 /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8080499D26FDB7E1001BDA88 /* DetailsViewController.swift */,
+				8080499F26FDB82E001BDA88 /* DetailsInteractor.swift */,
+				808049A126FDB83B001BDA88 /* DetailsPresenter.swift */,
 			);
-			path = QuoteScreen;
+			path = DetailsScreen;
 			sourceTree = "<group>";
 		};
 		8093B38526D3E04900B5F77A = {
@@ -185,7 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				8080499B26FDB2B6001BDA88 /* MainScreen */,
-				8080499C26FDB2CB001BDA88 /* QuoteScreen */,
+				8080499C26FDB2CB001BDA88 /* DetailsScreen */,
+				80303DDD26FA124D0017F13B /* Workers */,
 				8093B39126D3E04900B5F77A /* AppDelegate.swift */,
 				8093B39326D3E04900B5F77A /* SceneDelegate.swift */,
 				8093B39D26D3E04A00B5F77A /* Assets.xcassets */,
@@ -241,6 +255,7 @@
 			children = (
 				80A00A0326D672ED008DB344 /* NetworkService.swift */,
 				80A00A0526D672F9008DB344 /* Provider.swift */,
+				808049A526FE19A3001BDA88 /* DataStore.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -495,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808049A426FE0873001BDA88 /* MainScreenRouter.swift in Sources */,
 				809EB5C426F144D40012EA0C /* Factory.swift in Sources */,
 				80303DDC26FA0F950017F13B /* CollectionViewCell.swift in Sources */,
 				8093B39626D3E04900B5F77A /* MainViewController.swift in Sources */,
@@ -508,9 +524,13 @@
 				80303DE026FA13CB0017F13B /* CollectionManager.swift in Sources */,
 				809EB5BA26F12D4C0012EA0C /* View.swift in Sources */,
 				8067C36926F3576B002A96B0 /* AlphaTableViewCell.swift in Sources */,
+				8080499E26FDB7E1001BDA88 /* DetailsViewController.swift in Sources */,
 				80A0098B26D52C5E008DB344 /* Response.swift in Sources */,
+				808049A026FDB82E001BDA88 /* DetailsInteractor.swift in Sources */,
 				809EB5BE26F133320012EA0C /* Presenter.swift in Sources */,
+				808049A226FDB83B001BDA88 /* DetailsPresenter.swift in Sources */,
 				809EB5C026F1349B0012EA0C /* DataFlow.swift in Sources */,
+				808049A626FE19A3001BDA88 /* DataStore.swift in Sources */,
 				80A00A0626D672F9008DB344 /* Provider.swift in Sources */,
 				8093B39426D3E04900B5F77A /* SceneDelegate.swift in Sources */,
 			);

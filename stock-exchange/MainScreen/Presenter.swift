@@ -17,6 +17,16 @@ class Presenter: PresentationLogic {
     weak var viewController: DisplaysLogic?
     
     func presentData(response: DataFlow.Response) {
+//        response.map {
+//            if $0.ticker.contains("_") {
+//                let nameParts = $0.ticker.split(separator: "_")
+//                let nameFirst = nameParts[0]
+//                let nameSecond = nameParts[1]
+//                let name = [nameFirst, nameSecond].joined(separator: " -> ")
+//                print(name)
+//            }
+//        }
+        
         let quotes: [Quote] = response
         let collection: [DataFlow.Content] = [.collection(quotes)]
         

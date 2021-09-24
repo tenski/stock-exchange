@@ -12,9 +12,14 @@ protocol CollectionManaging: UICollectionViewDataSource, UICollectionViewDelegat
     var quotes: [Quote]? { get set }
 }
 
+protocol CollectionManagerDelegate: AnyObject {
+    func didSelectQuote(with quote: Quote)
+}
+
 class CollectionManager: NSObject, CollectionManaging {
     
     var quotes: [Quote]?
+    weak var delegate: CollectionManagerDelegate?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quotes?.count ?? 0
@@ -29,5 +34,11 @@ class CollectionManager: NSObject, CollectionManaging {
             cell.configure(quote: quote)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let quote = quotes?[indexPath.row] else { return }
+        
+        delegate?.didSelectQuote(with: quote)
     }
 }

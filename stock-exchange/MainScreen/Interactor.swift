@@ -28,6 +28,7 @@ class Interactor: InteractorBusinessLogic {
                 
                 switch fetch {
                 case .success(let data):
+                    
                     let quotes = data.map {
                         return Quote(ticker: $0.key, rawQuote: $0.value)
                     }.sorted {

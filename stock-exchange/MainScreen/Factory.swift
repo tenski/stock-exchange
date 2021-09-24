@@ -12,9 +12,11 @@ class Factory {
         let provider = Provider()
         let presenter = Presenter()
         let interactor = Interactor(presenter: presenter, provider: provider)
+        let router = MainScreenRouter()
+        let viewController = MainViewController(interactor: interactor, tableManager: TableManager(), router: router)
         
-        let viewController = MainViewController(interactor: interactor, tableManager: TableManager())
         presenter.viewController = viewController
+        router.viewController = viewController
         
         return viewController
     }

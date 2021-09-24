@@ -14,7 +14,7 @@ struct RawQuote: Codable {
     let percentChange: String
 }
 
-struct Quote {
+struct Quote: Codable {
     let ticker: String
     let id: Int
     let last: String
@@ -28,4 +28,5 @@ struct Quote {
         highestBid = rawQuote.highestBid
         percentChange = rawQuote.percentChange
     }
+    
 }
