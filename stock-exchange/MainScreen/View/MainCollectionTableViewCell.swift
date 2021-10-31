@@ -7,13 +7,10 @@
 
 import UIKit
 
-
-
-class CollectionTableViewCell: UITableViewCell {
+class MainCollectionTableViewCell: UITableViewCell {
+    static let identifier = "MainCollectionTableViewCell"
     
-    static let identifier = "CollectionTableViewCell"
-    
-    let collectionManager = CollectionManager()
+    let collectionManager = MainCollectionManager()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,7 +21,7 @@ class CollectionTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .clear
         collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -39,17 +36,19 @@ class CollectionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViewsAndConstraints() {
+    func configure(quotes: [Quote]) {
+        collectionManager.quotes = quotes
+        collectionView.reloadData()
+    }
+}
+
+private extension MainCollectionTableViewCell {
+    func setupViewsAndConstraints() {
         
         contentView.addSubview(collectionView)
         
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    func configure(quotes: [Quote]) {
-        collectionManager.quotes = quotes
-        collectionView.reloadData()
     }
 }

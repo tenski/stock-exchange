@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+protocol DetailsPresentationLogic {
+    func presentData(response: DetailsDataFlow.Response)
+}
+
+class DetailsPresenter: DetailsPresentationLogic {
+    weak var viewController: DisplaysDetailsLogic?
+    
+    func presentData(response: DetailsDataFlow.Response) {
+        let viewModel: DetailsDataFlow.ViewModel = response
+        viewController?.displayData(viewModel: viewModel)
+    }
+}

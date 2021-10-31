@@ -8,18 +8,17 @@
 import Foundation
 import UIKit
 
-protocol CollectionManaging: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol MainCollectionManaging: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var quotes: [Quote]? { get set }
 }
 
-protocol CollectionManagerDelegate: AnyObject {
-    func didSelectQuote(with quote: Quote)
+protocol MainCollectionManagerDelegate: AnyObject {
+    func didSelectQuote(with ticker: String)
 }
 
-class CollectionManager: NSObject, CollectionManaging {
-    
+class MainCollectionManager: NSObject, MainCollectionManaging {
     var quotes: [Quote]?
-    weak var delegate: CollectionManagerDelegate?
+    weak var delegate: MainCollectionManagerDelegate?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quotes?.count ?? 0
@@ -27,8 +26,8 @@ class CollectionManager: NSObject, CollectionManaging {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
-                                                            for: indexPath) as? CollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier,
+                                                            for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell()}
         
         if let quote = quotes?[indexPath.row] {
             cell.configure(quote: quote)
@@ -38,7 +37,7 @@ class CollectionManager: NSObject, CollectionManaging {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let quote = quotes?[indexPath.row] else { return }
-        
-        delegate?.didSelectQuote(with: quote)
+        let ticker = quote.ticker
+        delegate?.didSelectQuote(with: ticker)
     }
 }

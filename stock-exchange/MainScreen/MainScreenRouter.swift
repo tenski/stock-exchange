@@ -7,11 +7,21 @@
 
 import Foundation
 
-class MainScreenRouter {
+protocol RoutesMainScreen {
+    func openDetails(with ticker: String)
+}
+
+class MainScreenRouter: RoutesMainScreen {
     weak var viewController: MainViewController?
     
-    func openDetails(with quote: Quote) {
-        let detailsController = DetailsViewController(with: quote)
-        self.viewController?.navigationController?.pushViewController(detailsController, animated: true)
+    func openDetails(with ticker: String) {
+        let provider = DetailsProvider()
+        let presenter = DetailsPresenter()
+        let interactor = DetailsInteractor(presenter: presenter, provider: provider)
+        let detailsViewController = DetailsViewController(interactor: interactor, ticker: ticker)
+        
+        presenter.viewController = detailsViewController
+        
+        self.viewController?.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }

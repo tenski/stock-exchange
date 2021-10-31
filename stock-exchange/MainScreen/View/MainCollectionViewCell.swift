@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "CollectionViewCell"
+    static let identifier = "MainCollectionViewCell"
     
     private var borderView: UIView = {
         var view = UIView()
@@ -56,7 +56,17 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupViewsAndConstraints() {
+    func configure(quote: Quote) {
+        tickerLabel.text = quote.ticker
+        lastLabel.text = quote.last
+
+        let doublePercent = (Double(quote.percentChange) ?? 00)*100
+        percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
+    }
+}
+
+private extension MainCollectionViewCell {
+    func setupViewsAndConstraints() {
         contentView.add(subviews: borderView, tickerImageView, tickerLabel, lastLabel, percentLabel)
 
         borderView.snp.makeConstraints {
@@ -80,13 +90,5 @@ class CollectionViewCell: UICollectionViewCell {
             $0.bottom.right.equalToSuperview().inset(10)
             $0.top.equalTo(tickerImageView.snp.bottom).offset(10)
         }
-    }
-
-    func configure(quote: Quote) {
-        tickerLabel.text = quote.ticker
-        lastLabel.text = quote.last
-
-        let doublePercent = (Double(quote.percentChange) ?? 00)*100
-        percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
     }
 }

@@ -7,9 +7,8 @@
 
 import UIKit
 
-class AlphaTableViewCell: UITableViewCell {
-
-    static let identifier = "AlphaTableViewCell"
+class MainTableViewCell: UITableViewCell {
+    static let identifier = "MainTableViewCell"
     
     private lazy var lastAndPercentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [lastLabel, percentLabel])
@@ -54,7 +53,17 @@ class AlphaTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViewsAndConstraints() {
+    func configure(quote: Quote) {
+        tickerLabel.text = quote.ticker
+        lastLabel.text = quote.last
+        
+        let doublePercent = (Double(quote.percentChange) ?? 00)*100
+        percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
+    }
+}
+
+private extension MainTableViewCell {
+    func setupViewsAndConstraints() {
             contentView.add(subviews: tickerImageView, tickerLabel, lastAndPercentStackView)
             
             tickerImageView.snp.makeConstraints {
@@ -69,13 +78,5 @@ class AlphaTableViewCell: UITableViewCell {
                 $0.top.bottom.right.equalToSuperview().inset(10).priority(.high)
             }
             
-    }
-    
-    func configure(quote: Quote) {
-        tickerLabel.text = quote.ticker
-        lastLabel.text = quote.last
-        
-        let doublePercent = (Double(quote.percentChange) ?? 00)*100
-        percentLabel.text = "\(Double(round(100*doublePercent)/100))%"
     }
 }

@@ -1,11 +1,26 @@
 //
-//  Response.swift
+//  DataFlow.swift
 //  stock-exchange
 //
-//  Created by Алексей Тен on 24.08.2021.
+//  Created by Алексей Тен on 14.09.2021.
 //
 
 import Foundation
+
+enum MainDataFlow {
+    struct Request { }
+    
+    typealias Response = [Quote]
+    
+    struct ViewModel {
+        let content: [Content]
+    }
+    
+    enum Content {
+        case collection([Quote])
+        case table(Quote)
+    }
+}
 
 struct RawQuote: Codable {
     let id: Int
@@ -28,5 +43,4 @@ struct Quote: Codable {
         highestBid = rawQuote.highestBid
         percentChange = rawQuote.percentChange
     }
-    
 }

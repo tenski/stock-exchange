@@ -8,20 +8,20 @@
 import Foundation
 import UIKit
 
-protocol TableManaging: UITableViewDataSource, UITableViewDelegate {
-    var viewModel: DataFlow.ViewModel? { get set }
-    var delegate: TableManagerDelegate? { get set }
-    var collectionDelegate: CollectionManagerDelegate? { get set }
+protocol MainTableManaging: UITableViewDataSource, UITableViewDelegate {
+    var viewModel: MainDataFlow.ViewModel? { get set }
+    var delegate: MainTableManagerDelegate? { get set }
+    var collectionDelegate: MainCollectionManagerDelegate? { get set }
 }
 
-protocol TableManagerDelegate: AnyObject {
-    func didSelectQuote(with quote: Quote)
+protocol MainTableManagerDelegate: AnyObject {
+    func didSelectQuote(with ticker: String)
 }
 
-class TableManager: NSObject, TableManaging {
-    var viewModel: DataFlow.ViewModel?
-    weak var delegate: TableManagerDelegate?
-    weak var collectionDelegate: CollectionManagerDelegate?
+class MainTableManager: NSObject, MainTableManaging {
+    var viewModel: MainDataFlow.ViewModel?
+    weak var delegate: MainTableManagerDelegate?
+    weak var collectionDelegate: MainCollectionManagerDelegate?
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
@@ -35,15 +35,15 @@ class TableManager: NSObject, TableManaging {
         }
         switch content {
         case .collection(let quotes):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier,
-                                                           for: indexPath) as? CollectionTableViewCell else { return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainCollectionTableViewCell.identifier,
+                                                           for: indexPath) as? MainCollectionTableViewCell else { return UITableViewCell()}
             cell.configure(quotes: quotes)
             cell.selectionStyle = .none
             cell.collectionManager.delegate = collectionDelegate
             return cell
         case .table(let quote):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AlphaTableViewCell.identifier,
-                                                           for: indexPath) as? AlphaTableViewCell else { return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier,
+                                                           for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
             cell.configure(quote: quote)
             cell.selectionStyle = .none
             return cell
@@ -68,7 +68,8 @@ class TableManager: NSObject, TableManaging {
         
         switch content {
         case .table(let quote):
-            delegate?.didSelectQuote(with: quote)
+            let ticker = quote.ticker
+            delegate?.didSelectQuote(with: ticker)
         case .collection: break
         }
     }

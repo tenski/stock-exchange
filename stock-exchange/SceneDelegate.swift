@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let viewController = Factory.build()
+        let viewController = MainFactory.build()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.8588235294, green: 0.2745098039, blue: 0.2, alpha: 1)
         navigationController.navigationBar.isTranslucent = false

@@ -8,18 +8,17 @@
 import UIKit
 import SnapKit
 
-protocol DisplaysLogic: AnyObject {
-    func displayData(viewModel: DataFlow.ViewModel)
+protocol MainDisplaysLogic: AnyObject {
+    func displayData(viewModel: MainDataFlow.ViewModel)
 }
 
 class MainViewController: UIViewController, UITableViewDelegate {
+    private let tableManager: MainTableManaging
+    private let interactor: MainBusinessLogic
+    private let router: RoutesMainScreen
+    private lazy var contentView = MainView(tableManager: tableManager)
     
-    private let tableManager: TableManaging
-    private let interactor: InteractorBusinessLogic
-    private let router: MainScreenRouter
-    private lazy var contentView = View(tableManager: tableManager)
-    
-    init(interactor: InteractorBusinessLogic, tableManager: TableManaging, router: MainScreenRouter) {
+    init(interactor: MainBusinessLogic, tableManager: MainTableManaging, router: RoutesMainScreen) {
         self.interactor = interactor
         self.tableManager = tableManager
         self.router = router
@@ -33,31 +32,39 @@ class MainViewController: UIViewController, UITableViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        view = contentView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        interactor.loadData()
         
         let logoBox = LogoBox()
         navigationItem.titleView = logoBox
         navigationItem.titleView?.frame = .init(origin: .zero, size: logoBox.intrinsicContentSize)
     }
     
-    override func loadView() {
-        view = contentView
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor.loadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor.stopTimer()
     }
 }
 
 
-extension MainViewController: DisplaysLogic {
-    func displayData(viewModel: DataFlow.ViewModel) {
+extension MainViewController: MainDisplaysLogic {
+    func displayData(viewModel: MainDataFlow.ViewModel) {
         self.tableManager.viewModel = viewModel
         self.contentView.tableView.reloadData()
     }
 }
 
-extension MainViewController: TableManagerDelegate, CollectionManagerDelegate {
-    func didSelectQuote(with quote: Quote) {
-        router.openDetails(with: quote)
+extension MainViewController: MainTableManagerDelegate, MainCollectionManagerDelegate {
+    func didSelectQuote(with ticker: String) {
+        router.openDetails(with: ticker)
     }
 }

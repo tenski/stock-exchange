@@ -7,13 +7,14 @@
 
 import Foundation
 
-class Factory {
+class MainFactory {
     static func build() -> MainViewController {
-        let provider = Provider()
-        let presenter = Presenter()
-        let interactor = Interactor(presenter: presenter, provider: provider)
+        let provider = MainProvider()
         let router = MainScreenRouter()
-        let viewController = MainViewController(interactor: interactor, tableManager: TableManager(), router: router)
+        
+        let presenter = MainPresenter()
+        let interactor = MainInteractor(presenter: presenter, provider: provider)
+        let viewController = MainViewController(interactor: interactor, tableManager: MainTableManager(), router: router)
         
         presenter.viewController = viewController
         router.viewController = viewController
