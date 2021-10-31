@@ -162,12 +162,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		80782022270B02FA00F725CD /* Service */ = {
+		80782022270B02FA00F725CD /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				80782023270B030E00F725CD /* DetailsProvider.swift */,
 			);
-			path = Service;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		8080499B26FDB2B6001BDA88 /* MainScreen */ = {
@@ -180,7 +180,7 @@
 				808049A326FE0873001BDA88 /* MainScreenRouter.swift */,
 				809EB5BF26F1349B0012EA0C /* MainDataFlow.swift */,
 				80A0098926D52C31008DB344 /* View */,
-				80A00A0026D67275008DB344 /* Service */,
+				80A00A0026D67275008DB344 /* Provider */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 				808049A126FDB83B001BDA88 /* DetailsPresenter.swift */,
 				8078201F270B01E400F725CD /* DetailsDataFlow.swift */,
 				8078201A27032B1D00F725CD /* View */,
-				80782022270B02FA00F725CD /* Service */,
+				80782022270B02FA00F725CD /* Provider */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -275,13 +275,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		80A00A0026D67275008DB344 /* Service */ = {
+		80A00A0026D67275008DB344 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
 				80A00A0326D672ED008DB344 /* MainService.swift */,
 				80A00A0526D672F9008DB344 /* MainProvider.swift */,
 			);
-			path = Service;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		80BD0892272EC20000B2877E /* View */ = {
